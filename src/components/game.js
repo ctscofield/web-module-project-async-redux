@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
-// import { connect } from './../actions/index';
+import { connect } from 'react-redux';
 import { fetchFail, fetchGame } from "./../actions/index";
 
 const Game = (props) => {
     const { game, isFetching, error } = props;
 
+    useEffect(() => {
+        props.fetchGame();
+    }, []);
 
     const handleClick = () => {
         props.fetchGame();
@@ -25,4 +28,12 @@ const Game = (props) => {
     )
 }
 
-export default Game;
+const mapStateToProps = () => {
+    return {
+        game: state.game,
+        isFetching: state.isFetching,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, { fetchGame, fetchFail })(Game);
