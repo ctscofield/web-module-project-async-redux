@@ -1,25 +1,23 @@
-import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import { fetchFail, fetchGame } from "./../actions/index";
+import React, { useEffect } from "react";
+import { getGame } from "./../actions/index";
 
 const Game = (props) => {
-    const { game, isFetching, error } = props;
+    const { game } = props;
+    console.log(game);
 
-    useEffect(() => {
-        props.fetchGame();
+    useEffect((e) => {
+        props.getGame();
     }, []);
-
-    
-
     return (
         <div>
-            <h2>{game.title}</h2>
+            <h2>title{game.title}</h2>
             <img src={game.thumb} alt="game cover" />
             <div className="body">
-                <p>{game.normalPrice}</p>
-                <p>{game.salePrice}</p>
-                <p>{game.savings}</p>
-                <p>{game.steamRatingText}</p>
+                <p>${game.normalPrice}</p>
+                <p>sale ${game.salePrice}</p>
+                <p>%{game.savings}</p>
+                <p>rating{game.steamRatingText}</p>
                 <a href={game.link}>Buy Game</a>
             </div>
         </div>
@@ -34,4 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchGame, fetchFail })(Game);
+export default connect(mapStateToProps, { getGame })(Game);

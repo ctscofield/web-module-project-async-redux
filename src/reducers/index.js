@@ -1,15 +1,7 @@
 import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from "./../actions/index";
 
 const initialState = {
-    game: {
-        title: "",
-        thumb: "",
-        normalPrice: "",
-        salePrice: "",
-        savings: "",
-        steamRatingText: "",
-        link: `https://www.cheapshark.com/redirect?dealID={id}`
-    },
+    game: [],
     isFetching: false,
     error: ""
 };
@@ -22,7 +14,6 @@ export const reducer = (state = initialState, action) => {
           isFetching: true
         })
       case(FETCH_SUCCESS):
-        
         return({
           ...state,
           game: action.payload,
