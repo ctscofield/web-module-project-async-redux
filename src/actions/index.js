@@ -17,14 +17,14 @@ export const getGame = () => dispatch =>{
         })
 }
 
-// export const fetchStart = ()=> {
-//     return({type: FETCH_START});
-// }
+export const fetchStart = ()=> {
+    return({type: FETCH_START});
+}
 
-// export const fetchSuccess = (game)=> {
-//     return({type: FETCH_SUCCESS, payload: game});
-// }
+export const fetchSuccess = (game)=> {
+    return({type: FETCH_SUCCESS, payload: game});
+}
 
-// export const fetchFail = (error)=> {
-//     return({type: FETCH_FAIL, payload: error})
-// }
+export const fetchFail = (error)=> {
+    return({type: FETCH_FAIL, payload: error})
+}

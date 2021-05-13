@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from "react";
 import { getGame } from "./../actions/index";
+import GameItem from './GameItem';
 
 const Game = (props) => {
     const { game } = props;
@@ -11,15 +12,9 @@ const Game = (props) => {
     }, []);
     return (
         <div>
-            <h2>title{game.title}</h2>
-            <img src={game.thumb} alt="game cover" />
-            <div className="body">
-                <p>${game.normalPrice}</p>
-                <p>sale ${game.salePrice}</p>
-                <p>%{game.savings}</p>
-                <p>rating{game.steamRatingText}</p>
-                <a href={game.link}>Buy Game</a>
-            </div>
+            {
+                props.game.map(games=><GameItem key={games.dealID} games={games}/>)
+            }
         </div>
     )
 }

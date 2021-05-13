@@ -1,7 +1,15 @@
 import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from "./../actions/index";
 
 const initialState = {
-    game: [],
+    game: [{
+      title: "",
+      thumb: "",
+      normalPrice: "",
+      salePrice: "",
+      savings: "",
+      steamRatingText: "",
+      dealID: ""
+    }],
     isFetching: false,
     error: ""
 };
