@@ -10,7 +10,7 @@ export const fetchGame = () => {
 
         dispatch(fetchStart());
         axios
-            .get("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15")
+            .get("https://www.cheapshark.com/api/1.0/deals")
             .then(res => {
                 console.log(res.data);
                 dispatch({type: FETCH_SUCCESS, payload: res.data})

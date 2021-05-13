@@ -9,9 +9,7 @@ const Game = (props) => {
         props.fetchGame();
     }, []);
 
-    const handleClick = () => {
-        props.fetchGame();
-    }
+    
 
     return (
         <div>
@@ -28,7 +26,7 @@ const Game = (props) => {
     )
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
         game: state.game,
         isFetching: state.isFetching,
